@@ -44,5 +44,30 @@
 			</attributes>
 		</itemtype>
 -->
-	</itemtypes>
+	<relations>
+		<relation code="Product2CountryRel" autocreate="true" generate="true" localized="false">
+		<description>This is a many to many relationship between product and country.</description>
+			<deployment table="Product2CountryRel" typecode="231004" />
+			    <sourceElement qualifier="products" type="Product" cardinality="many">
+			        <modifiers read="true" write="true" search="true" optional="true"  />
+			    </sourceElement>
+			<targetElement qualifier="visibleInCountries" type="Country" cardinality="many">
+			    <description>The countries in which the product is visible</description>
+			    <modifiers read="true" write="true" search="true" optional="true" />
+			</targetElement>
+		</relation>
+		
+	</relations>
+	
+	<itemtype code="User" autocreate="false">
+	 <description>Extending the User type with additional attributes.</description>
+	 	<attribute type="Country" qualifier="currentCountry">
+	 	<description>User belongs to which country </description>
+				<modifiers read="true" write="true" search="true"/>
+				<persistence type="property" />
+		</attribute>
+				
+	</itemtype>
+	
+   </itemtypes>
 </items>

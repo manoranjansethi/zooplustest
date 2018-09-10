@@ -1,0 +1,2 @@
+INSERT_UPDATE SearchRestriction ;code[unique=true] ;restrictedType(code)[unique=true] ;principal(uid)[unique=true]  ;active ;query ;generate[default=false]
+;Backen_ProductCountryVisibility;Product;employeegroup;true;"EXISTS ({{ SELECT * FROM {Product2CountryRel as p2c} WHERE {p2c.source} = {item.PK} AND {p2c.target} = ?session.user.currentCountry}})"
